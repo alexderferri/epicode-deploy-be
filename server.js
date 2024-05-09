@@ -2,6 +2,7 @@ import express from "express";
 import { config } from "dotenv";
 import mongoose from "mongoose";
 import { authRouter } from "./services/routes/auth.route.js";
+import cors from "cors";
 
 // Abilitiamo l'uso dei file .env in ambiente express
 config();
@@ -11,6 +12,8 @@ const app = express();
 
 // Inizializza la porta
 const PORT = process.env.PORT || 3001;
+
+app.use(cors());
 
 // Utilizziamo i file JSON nei dialoghi tra client e server attraverso il Middleware json()
 app.use(express.json());
