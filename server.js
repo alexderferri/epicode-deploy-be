@@ -18,6 +18,10 @@ app.use(express.json());
 // Usiamo il route di autenticazione
 app.use("/auth", authRouter);
 
+app.get("/", (req, res) => {
+  res.send("server listening");
+});
+
 // Funzione per avviare il server
 const initServer = async () => {
   try {
