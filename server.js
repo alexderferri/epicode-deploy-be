@@ -13,7 +13,20 @@ const app = express();
 // Inizializza la porta
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+// CORS
+const whitelist = ["https://epicode-deploy.vercel.app/"]; // assuming front-end application is running on localhost port 3000
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsoptions));
 
 // Utilizziamo i file JSON nei dialoghi tra client e server attraverso il Middleware json()
 app.use(express.json());
