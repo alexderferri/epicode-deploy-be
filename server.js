@@ -26,7 +26,7 @@ const corsOptions = {
   },
 };
 
-app.use(cors(corsoptions));
+app.use(cors(corsOptions));
 
 // Utilizziamo i file JSON nei dialoghi tra client e server attraverso il Middleware json()
 app.use(express.json());
