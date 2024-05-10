@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // CORS
-const whitelist = ["https://epicode-deploy.vercel.app/"]; // assuming front-end application is running on localhost port 3000
+const whitelist = ["https://epicode-deploy.vercel.app"]; // assuming front-end application is running on localhost port 3000
 
 const corsOptions = {
   origin: function (origin, callback) {
