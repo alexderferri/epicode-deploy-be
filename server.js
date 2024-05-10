@@ -18,7 +18,7 @@ const whitelist = ["https://epicode-deploy.vercel.app"]; // assuming front-end a
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (!origin || whitelist.some((domain) => origin.startsWith(domain))) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
